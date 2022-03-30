@@ -18,7 +18,9 @@ PhoneNumberParser for the lecture Software Quality at DHBW Horb
 Als Sachbearbeiter möchte ich eine Lösung, in die ich eine beliebe Telefonnummer z. B. in der Form +49(187)-42031-69 eintragen kann und mir diese optimiert für die weitere die Verarbeitung ausgeben lassen kann.
 
 > **Status:** Laufend
+> 
 > **Prio:** Hoch
+> 
 > **Autor**: Kevin Schock
 
 #### Akzeptanzkriterium:
@@ -28,7 +30,9 @@ Die Optimierung ist erfolgreich, wenn die Telefonnummer vom System erkannt wird.
 Als Analyst möchte ich eine Lösung, in die ich eine beliebe Telefonnummer z. B. in der Form +49(187)-42031-69 eintragen kann und mir diese optimiert für die weitere Auswertungen ausgeben lassen kann.
 
 > **Status:** Laufend
+> 
 > **Prio:** Hoch
+> 
 > **Autor**: Kevin Schock
 
 #### Akzeptanzkriterium:
