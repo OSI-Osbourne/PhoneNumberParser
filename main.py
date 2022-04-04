@@ -16,6 +16,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def initInput(self):
         inputNumber = self.inputTelNr.text()
         Model.TelNumber.TelNumber(inputNumber)
+        self.outOptCC.setText("1")
+        self.outOptRegion.setText("1")
+        self.outOptPrimary.setText("1")
+        self.outOptExt.setText("1")
+        self.outStructTelNr.setText("1")
 
     def refresh(self):
         self.inputTelNr.setText("")

@@ -1,3 +1,7 @@
+import Controller.Validator
+import Controller.Parser
+import ui.MainWindow
+
 class TelNumber:
     def __init__(self, number):
         self.number = number
@@ -6,5 +10,7 @@ class TelNumber:
         self.primary = ""
         self.extension = ""
         self.full_number = ""
-        print(self.number)
+        Controller.Validator.validate(self.number)
+
+
 

@@ -1,2 +1,4 @@
-def parse(number):
-    pass
+import Model.TelNumber
+
+def parse(opt_number):
+   pass
