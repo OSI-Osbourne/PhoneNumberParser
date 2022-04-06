@@ -11,6 +11,7 @@ PhoneNumberParser for the lecture Software Quality at DHBW Horb
 ## Nutzung
 
 ## Projektarchitektur
+![Projektarchitektur](https://i.imgur.com/KcTj9KX.jpg)
 
 ## User-Stories
 
