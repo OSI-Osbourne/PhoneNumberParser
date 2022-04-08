@@ -7,6 +7,11 @@ PhoneNumberParser for the lecture Software Quality at DHBW Horb
 ## Getting Started
 
 ## Systemvoraussetzungen
+* Python 3.10.*: https://www.python.org/downloads/
+* Installieren der requirements.txt
+  * Navigiere in en Projektordner wo die requirements.txt vorhanden ist und öffne dort eine Konsole bzw. navigiere über die Konsole
+  * folgenden Befehl nutzen: pip install -r requirements.txt
+
 
 ## Nutzung
 
