@@ -1,7 +1,7 @@
 import re
 
 
-def replaceChars(number):
+def replace_chars(number):
     replacingChars = '.!#$^&*'
     for char in replacingChars:
         number = number.replace(char, '')
@@ -9,7 +9,7 @@ def replaceChars(number):
 
 
 def validate(number):
-    number = replaceChars(number)
+    number = replace_chars(number)
     optimized_number = []
     regex = re.compile(r'''(
 		(                    # Ländercode
