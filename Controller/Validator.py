@@ -49,13 +49,12 @@ def validate(number):
     result = regex.findall(number)[0]
 
     if result:
-        optimized_number.append(result[0])
         optimized_number.append(result[1])
         optimized_number.append(result[7])
         optimized_number.append(result[11] + result[14])
         optimized_number.append(result[13] + result[16])
     else:
-        optimized_number.append(["Ungültige Nummer", "", "", "", ""])
+        optimized_number.append(["", "", "", ""])
     return optimized_number
 #    split_pattern = re.split(pattern, number)
 #    split_pattern = list(filter(None, split_pattern))
