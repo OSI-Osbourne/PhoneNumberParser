@@ -1,16 +1,61 @@
 import re
 
+
+def replaceChars(number):
+    replacingChars = '.!#$^&*'
+    for char in replacingChars:
+        number = number.replace(char, '')
+    return number
+
+
 def validate(number):
-    number = ''.join(char for char in number if char.isalnum())
+    number = replaceChars(number)
     optimized_number = []
-    pattern = '^(\[?\+[1-9]{1,2}\]?|\(?0{1,2}[1-9]{0,2}\)?){1}(\(?\d{3,4}\)?){1}(\-?\/?\(?\[?\d{3,}\)?\]?){1}'
-    result = re.search(pattern, number)
+    regex = re.compile(r'''(
+		(                    # Ländercode
+			(
+				\[           # mit Klammern
+				(\+|[0]{2})  # + oder 00
+				[1-9]{1,3}   # Ländercode
+				\]
+			|
+				(\+|[0]{2})  # + oder 00
+				[1-9]{1,2}   # Ländercode
+			)
+		|
+			(0|\(0\))        # 0 mit/ohne Klammern
+		)
+		(\s|\/|-)?           # Trennzeichen
+		(                    # Vorwahl
+			\d{3,4}
+		|
+			\(\d{3,4}\)      # mit Klammern
+		|
+			\d+(-\d+)*
+		)
+		(\s|\/|-)?           # Trennzeichen
+		(
+			\[               # mit Klammern
+			(\d+)            # Durchwahl
+			(\s|\/|-)?       # Trennzeichen
+			(\d+)?           # Endung
+			\]
+		|
+			(\d+)            # Durchwahl
+			(\s|\/|-)?       # Trennzeichen
+			(\d+)?           # Endung
+		)
+	)''', re.VERBOSE)
+    result = regex.findall(number)[0]
+
     if result:
-        optimized_number.append(result.group(1))
-        optimized_number.append(result.group(2))
-        optimized_number.append(result.group(3))
+        optimized_number.append(result[0])
+        optimized_number.append(result[1])
+        optimized_number.append(result[7])
+        optimized_number.append(result[11] + result[14])
+        optimized_number.append(result[13] + result[16])
     else:
-        optimized_number.append("+49")
+        optimized_number.append(["Ungültige Nummer", "", "", "", ""])
     return optimized_number
 #    split_pattern = re.split(pattern, number)
 #    split_pattern = list(filter(None, split_pattern))
@@ -19,8 +64,3 @@ def validate(number):
 #        split_number.append(match)
 #    print(split_number)
 #    return split_number
-
-
-
-
-
