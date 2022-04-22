@@ -4,6 +4,7 @@ import Model.TelNumber
 from ui.MainWindow import Ui_MainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
@@ -15,12 +16,37 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def initInput(self):
         inputNumber = self.inputTelNr.text()
+        full_number = ''
+
         model = Model.TelNumber.TelNumber(inputNumber)
-        self.outOptCC.setText(model.cc)
+        model.cc = model.cc.replace('(', '')
+        model.cc = model.cc.replace(')', '')
+
+        # country code (cc)
+        if model.cc == '0':
+            self.outOptCC.setText("+49")
+            full_number += "+49 "
+        else:
+            self.outOptCC.setText(model.cc)
+            full_number += model.cc + ' '
+
+        # region number
         self.outOptRegion.setText(model.region)
+        full_number += model.region + ' '
+
+        # primary number
         self.outOptPrimary.setText(model.primary)
-        self.outOptExt.setText("1")
-        self.outStructTelNr.setText("1")
+        full_number += model.primary
+
+        # extension
+        if model.extension == '':
+            self.outOptExt.setText('─')
+        else:
+            self.outOptExt.setText(model.extension)
+            full_number += '-' + model.extension
+
+        # full phone number
+        self.outStructTelNr.setText(full_number)
 
     def refresh(self):
         self.inputTelNr.setText("")
@@ -30,11 +56,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.outOptPrimary.setText("")
         self.outOptExt.setText("")
 
+
 def main():
     app = QtWidgets.QApplication(sys.argv)
     window = MainWindow()
     window.show()
     app.exec()
+
 
 if __name__ == '__main__':
     main()
