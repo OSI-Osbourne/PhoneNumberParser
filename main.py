@@ -30,6 +30,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.outOptCC.setText(model.cc)
             full_number += model.cc + ' '
 
+        model.region = model.region.replace('(', '')
+        model.region = model.region.replace(')', '')
+
         # region number
         self.outOptRegion.setText(model.region)
         full_number += model.region + ' '
