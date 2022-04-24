@@ -56,10 +56,3 @@ def validate(number):
     else:
         optimized_number.append(["", "", "", ""])
     return optimized_number
-#    split_pattern = re.split(pattern, number)
-#    split_pattern = list(filter(None, split_pattern))
-#    for match in split_pattern:
-#        match = match.strip()
-#        split_number.append(match)
-#    print(split_number)
-#    return split_number
