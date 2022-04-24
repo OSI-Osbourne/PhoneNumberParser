@@ -1,11 +1,24 @@
 import re
+import json
 
+with open("Model/CountryCodes.json", "r") as read_file:
+    codes = json.load(read_file)
 
 def replace_chars(number):
     replacingChars = '.!#$^&*'
     for char in replacingChars:
         number = number.replace(char, '')
     return number
+
+def replace_cc(cc):
+    cc = cc
+    for code in codes:
+        if code['dial_code'] == cc:
+            cc = code['code']
+            break
+        else:
+            cc = cc
+    return cc
 
 
 def validate(number):

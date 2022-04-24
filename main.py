@@ -1,5 +1,6 @@
 import sys
 
+import Controller.Validator
 import Model.TelNumber
 from ui.MainWindow import Ui_MainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -24,11 +25,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # country code (cc)
         if model.cc == '0':
-            self.outOptCC.setText("+49")
+            model.cc = '+49'
+            self.outOptCC.setText("DE")
             full_number += "+49 "
+
+        elif model.cc.startswith('00'):
+            model.cc = model.cc.replace('00', '+')
+            self.outOptCC.setText(model.cc)
+            full_number += model.cc + ' '
         else:
             self.outOptCC.setText(model.cc)
             full_number += model.cc + ' '
+
+        model.cc = Controller.Validator.replace_cc(model.cc)
+        self.outOptCC.setText(model.cc)
 
         # region number
         self.outOptRegion.setText(model.region)
