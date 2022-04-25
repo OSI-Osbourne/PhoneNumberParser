@@ -28,7 +28,7 @@ PhoneNumberParser for the lecture Software Quality at DHBW Horb
 
 ### Story 1 - Erweiterung des CRM-Systems 
 Als Mitarbeiter möchte ich eine Lösung in der Form einer Benutzerapplikation, welche mich bei der Aufbereitung von Telefonnummern bei der täglichen Arbeit unterstützt und diese je nach Anwendungsfall optimiert.
-> **Status:** Laufend
+> **Status:** Abgeschlossen
 > 
 > **Prio:** Hoch
 > 
@@ -42,7 +42,7 @@ Die Optimierung ist erfolgreich, wenn die Telefonnummer vom System erkannt wird.
 ---
 ### Story 2 - Telefonnummer für Beratung optimieren
 Als Sachbearbeiter möchte ich eine Lösung, in die ich eine beliebe Telefonnummer, z. B. in der Form +49(187)-42031-69, eintragen kann und mir diese optimiert für die weitere Verarbeitung ausgeben lassen kann.
-> **Status:** Laufend
+> **Status:** Abgeschlossen
 > 
 > **Prio:** Hoch
 > 
@@ -57,7 +57,7 @@ Die Optimierung ist erfolgreich, wenn die Telefonnummer vom System erkannt wird.
 ### Story 3 - Telefonnummer für Analyse optimieren
 Als Analyst möchte ich eine Lösung, in die ich eine beliebe Telefonnummer, z. B. in der Form +49(187)-42031-69, eintragen kann und mir diese optimiert für weitere Auswertungen ausgeben lassen kann.
 
-> **Status:** Laufend
+> **Status:** Abgeschlossen
 > 
 > **Prio:** Hoch
 > 
@@ -78,7 +78,7 @@ Die Optimierung ist erfolgreich, wenn die Telefonnummer vom System erkannt wird.
 * Release Note basierend auf Releaseversion verfasst. 
 
 ---
-## Test
+## Testfälle
 
 | Eingabe                        | Ländervorwahl (erwartet) | Ortsvorwahl (erwartet) | Rufnummer (erwartet) | Durchwahl (erwartet) | Strukturiert (erwartet) | ISO-Kürzel (erwartet) | Check   |
 |--------------------------------|--------------------------|------------------------|----------------------|----------------------|-------------------------|-----------------------|---------|
@@ -92,3 +92,5 @@ Die Optimierung ist erfolgreich, wenn die Telefonnummer vom System erkannt wird.
 | +91 09870987 899               | +91                      | 0987                   | 0987                 | 899                  | +91 0987 0987-899       |                       | &check; |
 | [+49] (0)89-800/849-50         | +49                      |                        |                      |                      | +49 89-800 849-50       |                       | &check; |
 | +49 (8024) [990-477]           | +49                      | 8024                   | 990                  | 477                  | +49 8024 990-477        | DE                    | &check; |
+
+* Invalide Eingabe: Findet eine leere Eingabe statt oder entspricht die Eingabe nicht dem Standard wird eine Fehlermeldung ausgegeben.
