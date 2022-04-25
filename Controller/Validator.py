@@ -59,13 +59,18 @@ def validate(number):
 			(\d+)?           # Endung
 		)
 	)''', re.VERBOSE)
-    result = regex.findall(number)[0]
-
-    if result:
+    try:
+        result = regex.findall(number)[0]
         optimized_number.append(result[1])
         optimized_number.append(result[7])
         optimized_number.append(result[11] + result[14])
         optimized_number.append(result[13] + result[16])
-    else:
-        optimized_number.append(["", "", "", ""])
+        optimized_number.append(True)
+        print(optimized_number)
+    except:
+        optimized_number.append("")
+        optimized_number.append("")
+        optimized_number.append("")
+        optimized_number.append("")
+        optimized_number.append(False)
     return optimized_number

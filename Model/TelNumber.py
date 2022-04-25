@@ -10,3 +10,4 @@ class TelNumber:
         self.region = self.opt_number[1]
         self.primary = self.opt_number[2]
         self.extension = self.opt_number[3]
+        self.valid = self.opt_number[4]

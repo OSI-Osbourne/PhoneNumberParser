@@ -63,6 +63,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # full phone number
         self.outStructTelNr.setText(full_number)
 
+        # success
+        if not model.valid:
+            self.lblStatus.setText('Telefonnummer konnte nicht formatiert werden!')
+        else:
+            self.lblStatus.setText('Telefonnummer erfolgreich formatiert!')
+
     def refresh(self):
         self.inputTelNr.setText("")
         self.outStructTelNr.setText("")
@@ -70,6 +76,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.outOptRegion.setText("")
         self.outOptPrimary.setText("")
         self.outOptExt.setText("")
+        self.lblStatus.setText("")
 
 
 def main():
